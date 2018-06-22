@@ -5,13 +5,13 @@ import registerServiceWorker from './registerServiceWorker'
 import 'antd/dist/antd.css'
 import store from './store/store'
 
-const render = Component => {
-ReactDOM.render(
-  <React.Fragment>
-    <App />
-  </React.Fragment>,
-  document.getElementById('root')
-)
+const render = () => {
+  ReactDOM.render(
+    <React.Fragment>
+      <App />
+    </React.Fragment>,
+    document.getElementById('root')
+  )
 }
 
 render()

@@ -1,9 +1,9 @@
-import '../style/test.less'
 import React from 'react'
 import { Layout, Menu, Breadcrumb } from 'antd'
 import BasicExample from './BasicExample'
 import store from '../store/store'
 import Counter from './Counter'
+import '../style/test.less'
 const { Header, Content, Footer } = Layout
 
 class App extends React.Component {
@@ -33,6 +33,7 @@ class App extends React.Component {
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
               <BasicExample />
               <hr/>
+              <h1>111 <span>122</span></h1>
               <Counter
                 value={store.getState()}
                 onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
