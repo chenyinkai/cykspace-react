@@ -1,16 +1,17 @@
 import React from 'react'
 import { Layout, Menu } from 'antd'
 import './nav.less'
+import { Link } from 'react-router-dom'
 const { Header } = Layout
 
 class Nav extends React.Component {
   state = {
-    current: '1'
+    current: '0'
   }
   componentDidMount() {
-    this.setState({
-      current: '2'
-    })
+    // this.setState({
+    //   current: '2'
+    // })
   }
   handleClick = e => {
     this.setState({
@@ -18,7 +19,8 @@ class Nav extends React.Component {
     })
   }
   render() {
-    const navList = ['nav1', 'nav2', 'nav3']
+    const navList = ['首页', '标签', '归档', '关于']
+    const pathArr = ['/', '/tags', 'archives', 'about']
     return (
       <Layout className="layout">
         <Header>
@@ -30,16 +32,17 @@ class Nav extends React.Component {
             style={{ lineHeight: '64px', marginLeft: '200px' }}
           >
             {navList.map((k, i) => {
-              return(
-              <Menu.Item
-                key={i}
-                className={
-                  i === +this.state.current ? 'ant-menu-item-selected' : ''
-                }
-              >
-                {k}
-              </Menu.Item>
-            )})}
+              return (
+                <Menu.Item
+                  key={i}
+                  className={
+                    i === +this.state.current ? 'ant-menu-item-selected' : ''
+                  }
+                >
+                  <Link to={pathArr[i]}>{k}</Link>
+                </Menu.Item>
+              )
+            })}
           </Menu>
         </Header>
       </Layout>
