@@ -1,50 +1,30 @@
 import React from 'react'
-import { Layout, Menu, Breadcrumb } from 'antd'
 import BasicExample from './BasicExample'
 import store from '../store/store'
 import Counter from './Counter'
 import '../style/test.less'
-const { Header, Content, Footer } = Layout
+import TestContainer from './TestContainer'
+import Nav from '../components/nav/nav'
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Layout className="layout">
-          <Header>
-            <div className="logo" />
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              style={{ lineHeight: '64px' }}
-            >
-              <Menu.Item key="1">nav 1</Menu.Item>
-              <Menu.Item key="2">nav 2</Menu.Item>
-              <Menu.Item key="3">nav 3</Menu.Item>
-            </Menu>
-          </Header>
-          <Content style={{ padding: '0 50px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-              <BasicExample />
-              <hr/>
-              <h1>111 <span>122</span></h1>
-              <Counter
-                value={store.getState()}
-                onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
-                onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
-              />
-            </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>
-            Ant Design ©2016 Created by Ant UED
-          </Footer>
-        </Layout>
+        <Nav />
+        <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+          <BasicExample />
+          <hr />
+          <h1>
+            111 <span>122</span>
+          </h1>
+          <Counter
+            value={store.getState()}
+            onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+            onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+          />
+          <hr />
+          <TestContainer />
+        </div>
       </div>
     )
   }

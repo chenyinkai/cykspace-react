@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Menu } from 'antd'
 
 const AuthExample = () => {
   return (
@@ -17,6 +14,19 @@ const AuthExample = () => {
             <Link to="/protected">protected page</Link>
           </li>
         </ul>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['2']}
+          style={{ lineHeight: '64px' }}
+        >
+          <Menu.Item key="1">
+            <Link to="/public">public page</Link>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Link to="/protected">protected page</Link>
+          </Menu.Item>
+        </Menu>
         <hr />
         <Route path="/public" component={Public} />
         <Route path="/protected" component={Protected} />
