@@ -6,7 +6,7 @@ function mapStateToProps(state) {
   return {
     isShow: state.loading.isShow
   }
-}
+} 
 
 function mapDispatchToProps(dispatch) {
   return {
