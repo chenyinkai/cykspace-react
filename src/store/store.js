@@ -1,8 +1,8 @@
-import { createStore } from 'redux'
-import counter from './reducers'
+import { createStore, combineReducers } from 'redux'
+import * as loading from './loading/reducers'
 
 const store = createStore(
-  counter,
+  combineReducers({ ...loading }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
